@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Congratulations JiJi</title>
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<main class="card" id="stage">
+
+  <section class="scene" id="s1">
+    <svg viewBox="0 0 300 420" role="img" aria-label="Unlit candle">
+      <defs>
+        <radialGradient id="g"><stop offset="0" stop-color="#000" stop-opacity=".22"/><stop offset="1" stop-color="#000" stop-opacity="0"/></radialGradient>
+        <linearGradient id="wax" x1="0" x2="1"><stop offset="0" stop-color="#d8d8d8"/><stop offset=".45" stop-color="#fff"/><stop offset="1" stop-color="#cfcfcf"/></linearGradient>
+      </defs>
+      <circle id="halo" cx="150" cy="135" r="120" fill="url(#g)"/>
+      <g id="candle" class="shadow">
+        <rect x="60" y="368" width="180" height="16" rx="8" fill="#111"/>
+        <rect x="108" y="170" width="84" height="204" rx="10" fill="url(#wax)" stroke="#111" stroke-width="2"/>
+        <ellipse cx="150" cy="170" rx="42" ry="9" fill="#fff" stroke="#111" stroke-width="2"/>
+        <path id="flame" d="M150 98 C130 128 133 152 150 155 C167 152 170 128 150 98Z" fill="#fff" stroke="#111" stroke-width="2.5"/>
+        <g id="wick" role="button" tabindex="0" aria-label="Light the candle">
+          <rect x="148" y="152" width="4" height="22" rx="2" fill="#111"/>
+          <circle cx="150" cy="152" r="32" fill="transparent"/>
+        </g>
+      </g>
+    </svg>
+    <p class="hint">Tap the wick to light the candle</p>
+  </section>
+
+  <section class="scene" id="s2">
+    <div class="frame">
+      <img src="pinning.png" alt="Hands pinning a gold pin onto a nurse's white collar">
+
+      <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+        <defs>
+          <!-- painterly edges + canvas grain -->
+          <filter id="paint" x="-20%" y="-20%" width="140%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.035" numOctaves="3" seed="4" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="6" result="d"/>
+            <feGaussianBlur in="d" stdDeviation="0.9" result="soft"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="2" result="g"/>
+            <feColorMatrix in="g" type="matrix" values="0 0 0 0 .2  0 0 0 0 .16  0 0 0 0 .22  0 0 0 -1.3 .8" result="gc"/>
+            <feComposite in="gc" in2="soft" operator="in" result="grain"/>
+            <feMerge><feMergeNode in="soft"/><feMergeNode in="grain"/></feMerge>
+          </filter>
+          <filter id="paintS" x="-30%" y="-30%" width="160%" height="160%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.06" numOctaves="3" seed="9" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="3.2" result="d"/>
+            <feGaussianBlur in="d" stdDeviation="0.55" result="soft"/>
+            <feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" seed="5" result="g"/>
+            <feColorMatrix in="g" type="matrix" values="0 0 0 0 .2  0 0 0 0 .16  0 0 0 0 .22  0 0 0 -1.3 .8" result="gc"/>
+            <feComposite in="gc" in2="soft" operator="in" result="grain"/>
+            <feMerge><feMergeNode in="soft"/><feMergeNode in="grain"/></feMerge>
+          </filter>
+          <filter id="paintT" x="-10%" y="-20%" width="120%" height="140%">
+            <feTurbulence type="fractalNoise" baseFrequency="0.08" numOctaves="2" seed="3" result="n"/>
+            <feDisplacementMap in="SourceGraphic" in2="n" scale="1.6" result="d"/>
+            <feGaussianBlur in="d" stdDeviation="0.35"/>
+          </filter>
+          <filter id="blur6"><feGaussianBlur stdDeviation="4"/></filter>
+          <linearGradient id="capG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fdfdff"/><stop offset=".55" stop-color="#e1e5f2"/><stop offset="1" stop-color="#b3bbd9"/></linearGradient>
+          <linearGradient id="waxG" x1="0" x2="1"><stop offset="0" stop-color="#cbb287"/><stop offset=".4" stop-color="#f8ecd0"/><stop offset="1" stop-color="#d0b88a"/></linearGradient>
+          <linearGradient id="waxWarm" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#ffb347" stop-opacity=".75"/><stop offset=".5" stop-color="#ffb347" stop-opacity="0"/></linearGradient>
+          <linearGradient id="tagG" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#fffdf6"/><stop offset=".6" stop-color="#ece6d4"/><stop offset="1" stop-color="#cfc7b0"/></linearGradient>
+          <radialGradient id="glowG"><stop offset="0" stop-color="#ffd36e" stop-opacity=".85"/><stop offset=".5" stop-color="#f59a2a" stop-opacity=".3"/><stop offset="1" stop-color="#f59a2a" stop-opacity="0"/></radialGradient>
+        </defs>
+      </svg>
+
+      <svg class="deco tag" viewBox="0 0 130 56" aria-label="Name tag: JiJi">
+        <ellipse cx="68" cy="46" rx="52" ry="7" fill="#4a5578" opacity=".45" filter="url(#blur6)"/>
+        <g filter="url(#paintS)">
+          <rect x="8" y="6" width="112" height="38" rx="9" fill="#c9a24a"/>
+          <rect x="12" y="9" width="104" height="32" rx="7" fill="url(#tagG)"/>
+          <path d="M18 14 Q60 10 108 14" stroke="#fff" stroke-width="3" stroke-linecap="round" fill="none" opacity=".8"/>
+          <path d="M20 37 Q64 41 110 36" stroke="#b9ae92" stroke-width="3" stroke-linecap="round" fill="none" opacity=".6"/>
+        </g>
+        <text x="64" y="32" text-anchor="middle" font-family="Georgia,'Times New Roman',serif" font-size="21" font-weight="700" font-style="italic" fill="#4a3220" filter="url(#paintT)">JiJi</text>
+      </svg>
+
+      <div class="glow"></div>
+
+      <svg class="deco candle" viewBox="0 0 60 130" aria-hidden="true">
+        <circle class="mini-glow" cx="30" cy="30" r="34" fill="url(#glowG)"/>
+        <g filter="url(#paintS)">
+          <ellipse cx="30" cy="121" rx="27" ry="6.5" fill="#28331c"/>
+          <ellipse cx="30" cy="119" rx="22" ry="4" fill="#4a5a2c"/>
+          <path d="M20 118 Q30 121 40 118" stroke="#7d8f4a" stroke-width="2" fill="none" opacity=".7"/>
+          <rect x="15" y="52" width="30" height="66" rx="6" fill="url(#waxG)"/>
+          <rect x="15" y="52" width="30" height="40" rx="6" fill="url(#waxWarm)"/>
+          <path d="M21 57 Q19 85 22 114" stroke="#fffaf0" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".7"/>
+          <path d="M40 58 Q43 85 39 112" stroke="#a98a55" stroke-width="3.5" stroke-linecap="round" fill="none" opacity=".5"/>
+          <path d="M30 60 Q31 80 29 100" stroke="#e8d3a4" stroke-width="2" stroke-linecap="round" fill="none" opacity=".6"/>
+          <ellipse cx="30" cy="52" rx="15" ry="4.2" fill="#fff0cc"/>
+          <path d="M20 52 Q30 56 40 52" stroke="#f0b455" stroke-width="2" fill="none" opacity=".7"/>
+          <rect x="29" y="41" width="2.4" height="11" rx="1" fill="#3a2a1c"/>
+          <g class="mini-flame">
+            <path d="M30 11 C19 27 20 40 30 44 C40 40 41 27 30 11Z" fill="#ef9418"/>
+            <path d="M30 19 C23 30 24 40 30 43 C36 40 37 30 30 19Z" fill="#ffc83c"/>
+            <path d="M30 28 C27 35 28 40 30 41.5 C32 40 33 35 30 28Z" fill="#fff4bd"/>
+          </g>
+        </g>
+      </svg>
+
+      <svg class="deco hat" viewBox="0 0 120 90" aria-hidden="true">
+        <g filter="url(#paint)">
+          <ellipse cx="60" cy="81" rx="48" ry="6" fill="#000" opacity=".3"/>
+          <path d="M15 78 C17 60 21 42 28 31 C44 9 78 9 93 31 C100 43 104 60 106 78 Q60 87 15 78Z" fill="url(#capG)" stroke="#9aa3c4" stroke-width="1.2"/>
+          <path d="M30 72 Q37 48 54 26" stroke="#b6bdd9" stroke-width="7" stroke-linecap="round" fill="none" opacity=".55"/>
+          <path d="M84 72 Q89 50 80 30" stroke="#9fa8ca" stroke-width="6" stroke-linecap="round" fill="none" opacity=".5"/>
+          <path d="M62 70 Q64 50 60 30" stroke="#c9cfe6" stroke-width="5" stroke-linecap="round" fill="none" opacity=".5"/>
+          <path d="M42 58 Q52 38 67 23" stroke="#fff" stroke-width="8" stroke-linecap="round" fill="none" opacity=".85"/>
+          <path d="M76 52 Q80 42 78 34" stroke="#fff" stroke-width="4" stroke-linecap="round" fill="none" opacity=".6"/>
+          <path d="M18 58 Q60 77 103 58" fill="none" stroke="#8795c6" stroke-width="8" opacity=".85"/>
+          <path d="M22 56 Q60 72 98 56" fill="none" stroke="#b5c0e3" stroke-width="3" opacity=".7"/>
+          <path d="M60 28v18M51 37h18" stroke="#d49a1a" stroke-width="5" stroke-linecap="round" opacity=".95"/>
+          <path d="M60 30v14" stroke="#f1c75a" stroke-width="2" stroke-linecap="round" opacity=".8"/>
+        </g>
+      </svg>
+    </div>
+    <p class="msg"><strong>Congratulations on reaching this incredible milestone!</strong> Wearing that pin and cap suits you so well JiJi!!!</p>
+  </section>
+
+</main>
+<script src="script.js"></script>
+</body>
+</html>
