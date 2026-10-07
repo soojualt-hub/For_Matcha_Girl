@@ -1,0 +1,114 @@
+* { box-sizing: border-box; }
+
+html, body { height: 100%; margin: 0; }
+
+body {
+  background: #ececec;
+  color: #111;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.card {
+  position: relative;
+  width: min(100%, 440px);
+  min-height: 600px;
+  background: #fff;
+  border-radius: 28px;
+  box-shadow: 0 2px 4px rgba(0,0,0,.06), 0 24px 60px rgba(0,0,0,.18);
+}
+
+.scene {
+  position: absolute;
+  inset: 0;
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  transition: opacity 1.6s ease;
+}
+
+#s2 { opacity: 0; pointer-events: none; }
+.show2 #s1 { opacity: 0; pointer-events: none; }
+.show2 #s2 { opacity: 1; pointer-events: auto; }
+
+svg { width: 100%; height: auto; max-height: 62vh; overflow: visible; }
+#s2 svg { max-height: 54vh; }
+
+.shadow { filter: drop-shadow(0 14px 14px rgba(0,0,0,.28)); }
+
+.hint {
+  margin: 14px 0 0;
+  font-size: .85rem;
+  letter-spacing: .14em;
+  text-transform: uppercase;
+  color: #666;
+  animation: pulse 2s ease-in-out infinite;
+}
+.lit .hint { opacity: 0; animation: none; transition: opacity .4s; }
+@keyframes pulse { 50% { opacity: .3; } }
+
+#wick { cursor: pointer; outline: none; }
+#wick:focus-visible { outline: 2px dashed #111; outline-offset: 4px; }
+
+#flame, #halo { opacity: 0; transition: opacity .8s ease; }
+.lit #flame, .lit #halo { opacity: 1; }
+.lit #flame { transform-origin: 150px 155px; animation: flicker .16s ease-in-out infinite alternate; }
+@keyframes flicker {
+  from { transform: scale(1, 1) rotate(-2deg); }
+  to   { transform: scale(.94, 1.08) rotate(2deg); }
+}
+
+.msg {
+  margin: 18px 6px 0;
+  max-width: 360px;
+  text-align: center;
+  font-size: clamp(1rem, 4.2vw, 1.2rem);
+  line-height: 1.55;
+  font-weight: 300;
+}
+.msg strong { font-weight: 700; }
+
+.pin { animation: glint 2.6s ease-in-out infinite; }
+@keyframes glint { 50% { opacity: .8; } }
+
+/* ---- Pinning scene ---- */
+.card { width: min(100%, 560px); min-height: 620px; }
+
+.frame {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 900 / 687;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow: 0 18px 40px rgba(0,0,0,.3);
+}
+.frame img { width: 100%; height: 100%; display: block; object-fit: cover; }
+
+
+.deco { position: absolute; height: auto; overflow: visible; max-height: none; }
+.candle { left: 4%; bottom: 4%; width: 12%; }
+.hat { top: 3%; right: 3%; width: 22%; transform: rotate(10deg); }
+.mini-flame { transform-origin: 30px 42px; animation: flicker .16s ease-in-out infinite alternate; }
+
+/* ---- Painted candlelight ---- */
+.glow {
+  position: absolute;
+  left: -6%; bottom: -10%;
+  width: 52%; aspect-ratio: 1;
+  background: radial-gradient(circle, rgba(255,176,70,.55), rgba(255,140,40,.2) 45%, transparent 70%);
+  mix-blend-mode: screen;
+  pointer-events: none;
+  animation: glowflick 2.6s ease-in-out infinite;
+}
+@keyframes glowflick { 0%,100% { opacity: .9; } 50% { opacity: .65; } }
+.mini-glow { animation: glowflick 2.2s ease-in-out infinite; }
+.candle { width: 13%; }
+.hat { width: 24%; }
+
+/* ---- Painted name tag (lower right, on the shirt) ---- */
+.tag { left: 62%; top: 68%; width: 25%; transform: rotate(-5deg); }
