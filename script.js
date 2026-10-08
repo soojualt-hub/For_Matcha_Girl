@@ -77,10 +77,22 @@
     }
   })();
 
+  // Plays the uploaded match-lighting sound; falls back to the synthesized one if it can't load/play
+  function playSfx() {
+    try {
+      var a = new Audio('light.mp3');
+      a.volume = 0.9;
+      var p = a.play();
+      if (p && p.catch) p.catch(playLightSfx);
+    } catch (e) {
+      playLightSfx();
+    }
+  }
+
   function light() {
     if (lit) return;
     lit = true;
-    playLightSfx();
+    playSfx();
     stage.classList.add('lit');
     setTimeout(function () {
       stage.classList.add('show2');
