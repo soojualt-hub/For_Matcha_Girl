@@ -57,6 +57,26 @@
     } catch (e) { /* audio not supported - fail silently */ }
   }
 
+  // Rising matcha boba background
+  (function buildBackground() {
+    var bg = document.getElementById('bg');
+    if (!bg) return;
+    var n = 14;
+    for (var i = 0; i < n; i++) {
+      var size = 44 + Math.random() * 56;
+      var dur = 16 + Math.random() * 14;
+      var el = document.createElement('div');
+      el.className = 'cup';
+      el.style.left = (i * (100 / n) + Math.random() * 4) + '%';
+      el.style.width = size + 'px';
+      el.style.opacity = (0.55 + Math.random() * 0.4).toFixed(2);
+      el.style.animationDuration = dur + 's';
+      el.style.animationDelay = (-Math.random() * dur) + 's';
+      el.innerHTML = '<svg viewBox="0 0 100 160" style="animation-duration:' + (3 + Math.random() * 3).toFixed(1) + 's"><use href="#cup"/></svg>';
+      bg.appendChild(el);
+    }
+  })();
+
   function light() {
     if (lit) return;
     lit = true;

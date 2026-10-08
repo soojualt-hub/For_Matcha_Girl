@@ -3,7 +3,7 @@
 html, body { height: 100%; margin: 0; }
 
 body {
-  background: #ececec;
+  background: linear-gradient(180deg, #ffe9f0 0%, #fbcfdd 100%) fixed;
   color: #111;
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
   display: flex;
@@ -112,3 +112,18 @@ svg { width: 100%; height: auto; max-height: 62vh; overflow: visible; }
 
 /* ---- Painted name tag (lower right, on the shirt) ---- */
 .tag { left: 62%; top: 68%; width: 25%; transform: rotate(-5deg); }
+
+/* ---- Rising matcha background ---- */
+body { overflow: hidden; }
+.card { z-index: 1; }
+.bg { position: fixed; inset: 0; overflow: hidden; z-index: 0; pointer-events: none; }
+.cup {
+  position: absolute;
+  bottom: -220px;
+  animation: rise linear infinite;
+  will-change: transform;
+}
+.cup svg { display: block; width: 100%; height: auto; filter: drop-shadow(0 8px 8px rgba(120, 60, 80, .22)); animation: sway ease-in-out infinite alternate; }
+@keyframes rise { to { transform: translateY(calc(-100vh - 440px)); } }
+@keyframes sway { from { transform: rotate(-9deg); } to { transform: rotate(9deg); } }
+@media (prefers-reduced-motion: reduce) { .cup, .cup svg { animation: none; } }
